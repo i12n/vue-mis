@@ -1,0 +1,30 @@
+version: v1
+build:
+  tools:
+    git: 1.8.3.1
+    gcc: 4.8.5
+    gcc-c++: 4.8.5
+    automake:
+    autoconf:
+    libtool:
+    make: 3.82
+    node: 8.9.0
+  run:
+    cmd:
+      # - npm --registry=http://r.npm.sankuai.com i -g yarn@0.24.5
+      - npm --registry=http://r.npm.sankuai.com install
+      - npm run build
+    workDir: .
+  cache:
+    dirs:
+      - ./node_modules
+      - /home/sankuai/.npm
+  target:
+    files:
+        - ./
+deploy:
+  targetDir: /opt/meituan/xuanwu-mis
+  run:
+    cmd:
+      - ./bin/deploy.sh
+    workDir: .

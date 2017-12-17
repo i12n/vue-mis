@@ -1,0 +1,15 @@
+.el-dialog__body {
+  padding: 8px 24px;
+}
+
+.off-dialog {
+  width: 500px;
+}
+
+body {
+  margin: 0px;
+  padding: 0px;
+  font: 12px Helvetica,Arial,sans-serif;
+  font-size: 14px;
+  -webkit-font-smoothing: antialiased;
+}
