@@ -4,18 +4,21 @@
   "description": "xuanweu mis",
   "main": "index.js",
   "scripts": {
-    "dev": "NODE_ENV=development nodemon index.js -w",
-    "build": "NODE_ENV=production webpack",
+    "clear": "rm -rf ./static/* && cp -r public/ static/",
+    "dev": "NODE_ENV=development npm run clear && nodemon index.js -w",
+    "build": "npm run clear && webpack --config webpack.prod.config.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "gewenmao@gmail.com",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.17.0",
+    "babel-polyfill": "^6.23.0",
     "babel-register": "^6.26.0",
     "config": "^1.28.1",
     "echarts": "^3.8.5",
     "element-ui": "^2.0.3",
+    "eslint-plugin-vue": "^2.1.0",
     "glob": "^7.1.2",
     "handlebars": "^4.0.11",
     "iconv-lite": "^0.4.19",
@@ -27,6 +30,7 @@
     "moment": "^2.19.2",
     "url": "^0.11.0",
     "vue": "^2.5.3",
+    "vue-html-loader": "^1.2.4",
     "vue-router": "^3.0.1",
     "vuex": "^3.0.1"
   },
