@@ -1,0 +1,53 @@
+{
+  "name": "xuanwu-mis",
+  "version": "1.0.0",
+  "description": "xuanweu mis",
+  "main": "index.js",
+  "scripts": {
+    "dev": "NODE_ENV=development nodemon index.js -w",
+    "build": "NODE_ENV=production webpack",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "gewenmao@gmail.com",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.17.0",
+    "babel-register": "^6.26.0",
+    "config": "^1.28.1",
+    "echarts": "^3.8.5",
+    "element-ui": "^2.0.3",
+    "glob": "^7.1.2",
+    "handlebars": "^4.0.11",
+    "iconv-lite": "^0.4.19",
+    "koa": "^2.4.1",
+    "koa-render": "^0.2.1",
+    "koa-router": "^7.2.1",
+    "koa-static": "^4.0.1",
+    "koa-views": "^6.1.1",
+    "moment": "^2.19.2",
+    "url": "^0.11.0",
+    "vue": "^2.5.3",
+    "vue-router": "^3.0.1",
+    "vuex": "^3.0.1"
+  },
+  "devDependencies": {
+    "babel": "^6.23.0",
+    "babel-loader": "^7.1.2",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "css-loader": "^0.28.7",
+    "file-loader": "^1.1.5",
+    "koa-convert": "^1.2.0",
+    "koa-webpack-middleware": "^1.0.7",
+    "node-sass": "^4.6.0",
+    "nodemon": "^1.12.1",
+    "postcss-loader": "^2.0.8",
+    "sass-loader": "^6.0.6",
+    "style-loader": "^0.19.0",
+    "url-loader": "^0.6.2",
+    "vue-loader": "^13.4.0",
+    "vue-template-compiler": "^2.5.3",
+    "webpack": "^3.8.1"
+  }
+}
