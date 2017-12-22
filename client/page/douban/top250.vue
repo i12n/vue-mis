@@ -132,4 +132,4 @@ export default {
     color: #EB9E05;
     font-size: 12px;
   }
-</style>>
+</style>

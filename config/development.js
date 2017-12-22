@@ -6,7 +6,8 @@ module.exports = {
   port: 8000,
   path: {
     root: __root(),
-    static: __root('static')
+    static: __root('static'),
+    client: __root('client')
   },
   maxage: 0,
   hosts: {

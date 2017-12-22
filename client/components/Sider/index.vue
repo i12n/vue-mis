@@ -13,29 +13,20 @@
         @open="handleOpen"
         @close="handleClose"
         @click="haneleCollapse">
-
-        <el-menu-item
-          key="/home"
-          index="/home">
-            <i class="el-icon-menu"></i>
-            <span slot="title">首页</span>
-        </el-menu-item>
       
         <el-submenu index="3">
           <template slot="title">
-            <i class="el-icon-setting"></i>
+            <i class="icon icon-douban"></i>
             <span>豆瓣</span>
           </template>
           <el-menu-item
             key="/douban/top250"
             index="/douban/top250">
-            <i class="el-icon-tickets"></i>
             <span slot="title">TOP250</span>
           </el-menu-item>
           <el-menu-item
             key="/douban/in_theaters"
             index="/douban/in_theaters">
-              <i class="el-icon-news"></i>
               <span slot="title">正在上映</span>
           </el-menu-item>
         </el-submenu>
