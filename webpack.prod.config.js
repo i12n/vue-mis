@@ -56,9 +56,13 @@ module.exports = {
   ],
   resolve: {
     alias: {
-        // components: path.join(root,'client/components'),
-        // page: path.join(root,'client/page'),
-        // store: path.join(root,'client/store'),
+        '@client': config.path.client,
+        '@components': path.join(config.path.client, 'components'),
+        '@page': path.join(config.path.client, 'page'),
+        '@store': path.join(config.path.client, 'store'),
+        '@router': path.join(config.path.client, 'router'),
+        '@lib': path.join(config.path.client, 'lib'),
+        '@style': path.join(config.path.client, 'style'),
         'vue$': 'vue/dist/vue.common.js'
     },
     extensions: ['.js','.vue']
