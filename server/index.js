@@ -15,12 +15,12 @@ const app = new Koa();
 if (process.env.NODE_ENV == 'development') {
   const webpack = require('webpack');
   const koaWebpackMiddleware = require('koa-webpack-middleware');
-  const config = require('./../webpack.config');
+  const webConfig = require('./../webpack.config');
 
   const webpackDevMiddleware = koaWebpackMiddleware.devMiddleware;
   const webpackHotMiddleware = koaWebpackMiddleware.hotMiddleware;
   
-  const compiler = webpack(config);
+  const compiler = webpack(webConfig);
 
   app.use(convert(webpackDevMiddleware(compiler, {
     watchOptions: {
@@ -28,7 +28,7 @@ if (process.env.NODE_ENV == 'development') {
       poll: true
     },
     reload: true,
-    publicPath: config.output.publicPath,
+    publicPath: webConfig.output.publicPath,
     stats: {
       colors: true
     }
