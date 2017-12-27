@@ -1,14 +1,15 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import ElementUI from 'element-ui';
-import 'element-ui/lib/theme-chalk/index.css';
-import './style/index.css';
 import store from './store';
 import routes from './router';
 import App from './App.vue';
-import VueAxios from './lib/axios';
-import VueMoment from './lib/moment';
-import VueEcharts from './lib/echarts';
+import VueAxios from '@lib/axios';
+import VueMoment from '@lib/moment';
+import VueEcharts from '@lib/echarts';
+
+import 'element-ui/lib/theme-chalk/index.css';
+import '@style/index.css';
 
 
 Vue.use(VueRouter)

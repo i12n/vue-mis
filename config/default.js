@@ -7,7 +7,8 @@ module.exports = {
   path: {
     root: __root(),
     static: __root('static'),
-    client: __root('client')
+    client: __root('client'),
+    controller: __root('server/controller'),
   },
   maxage: 0,
   hosts: {

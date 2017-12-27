@@ -1,4 +1,7 @@
-const path = require('path');
-const views = require('koa-views');
-
-module.exports = views(path.join(__dirname, './../view'), {map: { hbs: 'handlebars' }});
+module.exports = async function (ctx, next) {
+  if (/^\/api\//.test(ctx.path) || ctx.request.get('api-proxy-host')) {
+    await next();
+  } else {
+    await ctx.render('index.hbs', ctx.__assets);
+  }
+};
