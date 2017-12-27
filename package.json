@@ -1,7 +1,7 @@
 {
-  "name": "xuanwu-mis",
+  "name": "vue-mis",
   "version": "1.0.0",
-  "description": "xuanweu mis",
+  "description": "vue mis",
   "main": "index.js",
   "scripts": {
     "clear": "rm -rf ./static/* && cp -r public/ static/",

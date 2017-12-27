@@ -1,0 +1,15 @@
+{
+  "apps" : [{
+    "name"               : "vue-mis",
+    "script"             : "index.js",
+    "exec_interpreter"   : "node",
+    "instances"          : 4,
+    "log_date_format"    : "YYYY-MM-DD HH:mm:ss.SSS",
+    "max_memory_restart" : "1400M",
+    "merge_logs"         : true,
+    "watch"              : false,
+    "error_file"         : "/var/logs/vue-mis/stderr.log",
+    "out_file"           : "/var/logs/vue-mis/stdout.log",
+    "pid_file"           : "/var/logs/vue-mis/vue-mis.pid"
+  }]
+}
