@@ -1,21 +1,22 @@
 'use strict';
 
-var join = require('url').resolve;
 var iconv = require('iconv-lite');
 const config = require('config');
 const axios = require('axios');
 
-function proxy(options) {
-  options || (options = {});
+function proxy(opts) {
+  opts || (opts = {});
 
-  if (!(options.host || options.map || options.url)) {
+  if (!(opts.host || opts.map)) {
     throw new Error('miss options');
   }
 
   return async function (ctx, next) {
+    var options = {...opts};
     if (typeof options.host === 'function') {
       options.host = options.host(ctx);
     }
+
     var url = resolve(ctx.path, options);
 
     if(typeof options.suppressRequestHeaders === 'object'){
@@ -52,8 +53,8 @@ function proxy(options) {
       followRedirect: options.followRedirect === false ? false : true,
       method: ctx.method
     };
-
-    if (opt.method == 'POST') {
+    console.log(ctx.request);
+    if (opt.method == 'POST' || opt.method == 'post') {
       opt = { ...opt, data: ctx.request.body || {}};
     }
 
@@ -124,12 +125,8 @@ function proxy(options) {
 
 
 function resolve(path, options) {
-  var url = options.url;
-  if (url) {
-    if (!/^http/.test(url)) {
-      url = options.host ? join(options.host, url) : null;
-    }
-    return ignoreQuery(url);
+  if (!options.host) {
+    return null;
   }
 
   if (typeof options.map === 'object') {
@@ -140,7 +137,7 @@ function resolve(path, options) {
     path = options.map(path);
   }
 
-  return options.host ? join(options.host, path) : null;
+  return options.host + path;
 }
 
 function ignoreQuery(url) {

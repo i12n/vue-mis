@@ -3,7 +3,7 @@ const convert = require('koa-convert');
 const serve = require('koa-static');
 const config = require('config');
 const routes = require('router-bus');
-
+const bodyParser = require('koa-bodyparser');
 
 const render = require('./middlewares/render');
 const views = require('./middlewares/views');
@@ -37,6 +37,7 @@ if (process.env.NODE_ENV == 'development') {
   app.use(convert(webpackHotMiddleware(compiler)));
 }
 
+app.use(bodyParser());
 app.use(convert(serve(config.path.static)));
 app.use(routes(config.path.controller));
 app.use(asset);

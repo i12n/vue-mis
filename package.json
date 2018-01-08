@@ -23,6 +23,7 @@
     "handlebars": "^4.0.11",
     "iconv-lite": "^0.4.19",
     "koa": "^2.4.1",
+    "koa-bodyparser": "^4.2.0",
     "koa-compose": "^4.0.0",
     "koa-multer": "^1.0.2",
     "koa-render": "^0.2.1",
