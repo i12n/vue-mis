@@ -8,6 +8,9 @@
     "max_memory_restart" : "1400M",
     "merge_logs"         : true,
     "watch"              : false,
+    "env": {
+        "NODE_ENV"       : "production"
+    },
     "error_file"         : "/var/logs/vue-mis/stderr.log",
     "out_file"           : "/var/logs/vue-mis/stdout.log",
     "pid_file"           : "/var/logs/vue-mis/vue-mis.pid"

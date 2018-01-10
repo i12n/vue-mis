@@ -1,6 +1,7 @@
 const path = require('path');
+const fs = require('fs');
 const webpack = require('webpack');
-
+const config = require('config');
 // const HtmlWebpackPlugin = require('html-webpack-plugin')
 const url = require('url');
 const publicPath = ''
@@ -52,18 +53,38 @@ module.exports = {
       'process.env': {
         NODE_ENV: JSON.stringify(process.env.NODE_ENV)
       }
-    })
+    }),
+    function() {
+      this.plugin("done", function(stats) {
+        const buildStats = stats.toJson();
+        const { assetsByChunkName = {} } = buildStats;
+        const chunkNames = {};
+
+        for (const name in assetsByChunkName) {
+          const fileName = []
+            .concat(assetsByChunkName[ name ])
+            .find(f => /^js\/.*\.js$/g.test(f));
+
+          chunkNames[ name ] = fileName;
+        }
+
+        fs.writeFileSync(
+          path.join(__dirname, "./.hash.json"),
+          JSON.stringify(chunkNames)
+        );
+      });
+    }
   ],
   resolve: {
     alias: {
-        '@client': config.path.client,
-        '@components': path.join(config.path.client, 'components'),
-        '@page': path.join(config.path.client, 'page'),
-        '@store': path.join(config.path.client, 'store'),
-        '@router': path.join(config.path.client, 'router'),
-        '@lib': path.join(config.path.client, 'lib'),
-        '@style': path.join(config.path.client, 'style'),
-        'vue$': 'vue/dist/vue.common.js'
+      '@client': config.path.client,
+      '@components': path.join(config.path.client, 'components'),
+      '@page': path.join(config.path.client, 'page'),
+      '@store': path.join(config.path.client, 'store'),
+      '@router': path.join(config.path.client, 'router'),
+      '@lib': path.join(config.path.client, 'lib'),
+      '@style': path.join(config.path.client, 'style'),
+      'vue$': 'vue/dist/vue.common.js'
     },
     extensions: ['.js','.vue']
   },
