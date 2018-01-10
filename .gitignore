@@ -1,2 +1,4 @@
 node_modules
-static/*
+static/js/
+static/*.ttf
+.hash.json
