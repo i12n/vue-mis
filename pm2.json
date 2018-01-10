@@ -9,7 +9,7 @@
     "merge_logs"         : true,
     "watch"              : false,
     "env": {
-        NODE_ENV         : "production"
+        "NODE_ENV"       : "production"
     },
     "error_file"         : "/var/logs/vue-mis/stderr.log",
     "out_file"           : "/var/logs/vue-mis/stdout.log",
